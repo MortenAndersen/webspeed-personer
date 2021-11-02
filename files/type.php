@@ -1,5 +1,5 @@
 <?php
-// Custom Taxonomy = 'ydelse-type'
+// Custom Taxonomy = 'personer-type'
 
     function custom_taxonomy_personer() {
 
