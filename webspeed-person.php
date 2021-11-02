@@ -1,0 +1,19 @@
+<?php
+/*
+Plugin Name: Webspeed person
+Version: 1.0
+Plugin URI: https://www.web.dk
+Description: Personer. Requirements: Advanced Custom Fields PRO
+Author: Morten Andersen
+Text Domain: websepeed-personer-domain
+Author URI: https://www.web.dk.dk
+*/
+
+// Files
+if( function_exists('acf_add_local_field_group') ):
+	require_once ('files/acf.php');
+	require_once ('files/type.php');
+	require_once ('files/functions.php');
+	require_once ('files/posttype.php');
+	require_once ('files/shortcode.php');
+endif;
