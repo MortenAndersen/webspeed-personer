@@ -50,6 +50,13 @@ function webspeed_person_data() {
 
     echo '</ul>';
 
+    $person_excerpt = get_the_excerpt();
+     if($person_excerpt !='') {
+        echo '<div class="person-excerpt small-font">';
+            the_excerpt();
+        echo '</div>';
+     } 
+
     $content = get_the_content();
     if(!empty($content) && !is_single()) {
         web_read_more();
