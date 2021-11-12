@@ -50,8 +50,8 @@ function webspeed_person_data() {
 
     echo '</ul>';
 
-    $person_excerpt = get_the_excerpt();
-     if($person_excerpt !='') {
+  
+     if ( has_excerpt() ) {
         echo '<div class="person-excerpt small-font">';
             the_excerpt();
         echo '</div>';
