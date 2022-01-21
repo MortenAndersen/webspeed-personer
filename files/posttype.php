@@ -10,7 +10,7 @@
 	    	array(
 	    		'labels' => array(
 	    			'name' => __('Personer', 'websepeed-personer-domain'),
-	    			'singular_name' => __('Person', 'mother-person')
+	    			'singular_name' => __('Person', 'websepeed-personer-domain')
 	    		),
 	    		'public' => true,
 	    		'menu_icon' => 'dashicons-businessman',
@@ -31,7 +31,7 @@
 	}
 
 	function webspeed_person_posttype_function() {
-	    mother_person_create_posttype_person();
+	    webspeed_person_create_posttype_person();
 	}
 
 	register_activation_hook( __FILE__, 'webspeed_person_posttype_function' );

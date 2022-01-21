@@ -21,9 +21,14 @@ function webspeed_person_data() {
     }
 
     if( get_field('email') ) {
+        $hh = get_field('email');
         echo '<li class="email icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/mail.php';
-            echo '<a href="mailto:' . get_field('email') . '">Email</a>';
+        include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/mail.php';
+            if( get_field('klik_tekst_email') ) :
+                echo '<a href="mailto:' . get_field('email') . '">' . get_field('klik_tekst_email') . '</a>';
+            else :
+                echo '<a href="mailto:' . get_field('email') . '">' . $hh . '</a>';
+            endif;
         echo '</li>';
     }
                 
@@ -41,11 +46,22 @@ function webspeed_person_data() {
             echo '</li>';
     }
                 
-    if( get_field('hjemmeside') && get_field('klik_tekst') ) {
-        echo '<li class="hjemmeside icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/www.php';
-            echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . get_field('klik_tekst') . '</a>';
-        echo '</li>';
+    if( get_field('hjemmeside') ) {
+        if (get_field('klik_tekst') ) :
+            echo '<li class="hjemmeside icon">';
+                include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/www.php';
+                echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . get_field('klik_tekst') . '</a>';
+            echo '</li>';
+        else :
+             // Remove http:// and https://
+            $clean_url = get_field('hjemmeside');
+            $clean_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $clean_url );
+
+            echo '<li class="hjemmeside icon">';
+                include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/www.php';
+                echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . $clean_url . '</a>';
+            echo '</li>';
+        endif;
     }
 
     echo '</ul>';
