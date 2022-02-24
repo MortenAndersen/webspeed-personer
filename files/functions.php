@@ -77,7 +77,6 @@ function webspeed_person_data() {
     if(!empty($content) && !is_single()) {
         web_read_more();
     }
-    web_edit_link();
 }
 
 function webspeed_person_img() {
