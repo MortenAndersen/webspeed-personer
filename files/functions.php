@@ -1,66 +1,73 @@
 <?php
 function webspeed_person_data() {
-    echo '<ul class="person-data">';
+    echo '<ul class="contact-con personer">';
 
     if( get_field('titel') ) {
         echo '<li class="title">' . get_field('titel') . '</li>';
     }
 
     if( get_field('mobiltelefon') ) {
-        echo '<li class="cell icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/cell.php';
+        echo '<li class="contact-telefon"><span class="contact-label">';
+            echo svg_url(1);
+           echo '</span><span class="contact-info">';
             echo '<span class="data"><a href="tel:' . str_replace(' ', '',get_field('mobiltelefon')) . '">' . get_field('mobiltelefon') . '</a></span>';
-        echo '</li>';
+        echo '</span></li>';
     }
 
     if( get_field('telefon') ) {
-        echo '<li class="phone icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/phone.php';
+         echo '<li class="contact-telefon"><span class="contact-label">';
+            echo svg_url(1);
+           echo '</span><span class="contact-info">';
             echo '<span class="data"><a href="tel:' . str_replace(' ', '',get_field('telefon')) . '">' . get_field('telefon') . '</a></span>';
-        echo '</li>';
+        echo '</span></li>';
     }
 
     if( get_field('email') ) {
         $hh = get_field('email');
-        echo '<li class="email icon">';
-        include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/mail.php';
+        echo '<li class="contact-email"><span class="contact-label">';
+           echo svg_url(2);
+           echo '</span><span class="contact-info">';
             if( get_field('klik_tekst_email') ) :
                 echo '<a href="mailto:' . get_field('email') . '">' . get_field('klik_tekst_email') . '</a>';
             else :
                 echo '<a href="mailto:' . get_field('email') . '">' . $hh . '</a>';
             endif;
-        echo '</li>';
+        echo '</span></li>';
     }
                 
     if( get_field('linkedin') ) {
-        echo '<li class="phone icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/linkedin.php';
+        echo '<li class="contact-linkedin"><span class="contact-label">';
+           echo svg_url(6);
+           echo '</span><span class="contact-info">';
             echo '<a href="' . get_field('linkedin') . '" target="_blank">Linkedin</a>';
-        echo '</li>';
+        echo '</span></li>';
     }
 
     if( get_field('facebook') ) {
-        echo '<li class="facebook icon">';
-            include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/facebook.php';
+        echo '<li class="contact-linkedin"><span class="contact-label">';
+           echo svg_url(7);
+           echo '</span><span class="contact-info">';
             echo '<a href="' . get_field('facebook') . '" target="_blank">facebook</a>';
-            echo '</li>';
+            echo '</span></li>';
     }
                 
     if( get_field('hjemmeside') ) {
         if (get_field('klik_tekst') ) :
-            echo '<li class="hjemmeside icon">';
-                include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/www.php';
+             echo '<li class="contact-www"><span class="contact-label">';
+            echo svg_url(4);
+           echo '</span><span class="contact-info">';
                 echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . get_field('klik_tekst') . '</a>';
-            echo '</li>';
+            echo '</span></li>';
         else :
              // Remove http:// and https://
             $clean_url = get_field('hjemmeside');
             $clean_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $clean_url );
 
-            echo '<li class="hjemmeside icon">';
-                include WP_CONTENT_DIR . '/plugins/webspeed-personer/icon/www.php';
+                echo '<li class="contact-www"><span class="contact-label">';
+            echo svg_url(4);
+           echo '</span><span class="contact-info">';
                 echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . $clean_url . '</a>';
-            echo '</li>';
+            echo '</span></li>';
         endif;
     }
 
