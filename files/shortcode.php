@@ -6,7 +6,12 @@ function webspeed_personer($atts) {
   ob_start();
 
   // define attributes and their defaults
-  extract(shortcode_atts(array('grid' => '3', 'gap' => '2', 'type' =>'' ), $atts));
+  extract(shortcode_atts(array(
+    'grid' => '3',
+    'gap' => '2',
+    'type' =>'',
+    'class' => 'no-class',
+     ), $atts));
 
 
 if (!empty($type)) {
@@ -61,6 +66,12 @@ if( $gap == 1 ) {
 
 
 if ( $loop->have_posts() ) {
+
+if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wrap.php') ) { 
+    echo '<div class="wide-con wrap-' . $class . '">';
+        echo '<div class="wrap-pad">';
+}
+
   echo '<div class="personer-shortcode grid ' . $grid_class . $gap_class . '">';
   while ( $loop->have_posts() ) : $loop->the_post();
     echo '<div id="post-id-' .get_the_ID(). '" class="person-item">';
@@ -70,6 +81,10 @@ if ( $loop->have_posts() ) {
     echo '</div>';
   endwhile; wp_reset_query();
   echo '</div>';
+if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wrap.php') ) { 
+        echo '</div>';
+    echo '</div>';
+}
 }
 
     $myvariable = ob_get_clean();
