@@ -81,6 +81,7 @@ if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wra
       webspeed_person_img();
       webspeed_person_titel();
       webspeed_person_data();
+      web_edit_link();
     echo '</div>';
   endwhile; wp_reset_query();
   echo '</div>';
