@@ -72,7 +72,7 @@ if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wra
         echo '<div class="wrap-pad">';
 }
 
-  echo '<div class="personer-shortcode grid ' . $grid_class . $gap_class . '">';
+  echo '<div class="personer-shortcode grid ' .$class . $grid_class . $gap_class . '">';
   while ( $loop->have_posts() ) : $loop->the_post();
     echo '<div id="post-id-' .get_the_ID(). '" class="person-item">';
       webspeed_person_img();
