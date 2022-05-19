@@ -11,6 +11,8 @@ function webspeed_personer($atts) {
     'gap' => '2',
     'type' =>'',
     'class' => 'no-class',
+    'number' => '999',
+    'offset' => '0',
      ), $atts));
 
 
@@ -36,7 +38,8 @@ if (!empty($type)) {
     'post_type' => 'person',
     'orderby' => 'menu_order',
     'order' => 'ASC',
-    'posts_per_page' => -1,
+    'posts_per_page' => $number,
+    'offset' => $offset,
     )
   );
 
