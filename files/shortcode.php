@@ -70,10 +70,7 @@ if( $gap == 1 ) {
 
 if ( $loop->have_posts() ) {
 
-if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wrap.php') ) { 
-    echo '<div class="wide-con wrap-' . $class . '">';
-        echo '<div class="wrap-pad">';
-}
+
 
   echo '<div class="personer-shortcode grid ' .$class . $grid_class . $gap_class . '">';
   while ( $loop->have_posts() ) : $loop->the_post();
@@ -85,10 +82,7 @@ if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wra
     echo '</div>';
   endwhile; wp_reset_query();
   echo '</div>';
-if (is_page_template('page-no-wrap-topimg.php') || is_page_template('page-no-wrap.php') ) { 
-        echo '</div>';
-    echo '</div>';
-}
+
 }
 
     $myvariable = ob_get_clean();
