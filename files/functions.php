@@ -1,32 +1,32 @@
 <?php
 function webspeed_person_data() {
-    echo '<ul class="contact-con personer">';
+    echo '<ul class="kontakt-con personer">';
 
     if( get_field('titel') ) {
         echo '<li class="title">' . get_field('titel') . '</li>';
     }
 
     if( get_field('mobiltelefon') ) {
-        echo '<li class="contact-telefon"><span class="contact-label">';
+        echo '<li class="k-tel"><span class="k-label">';
             echo svg_url(1);
-           echo '</span><span class="contact-info">';
+           echo '</span><span class="k-info">';
             echo '<span class="data"><a href="tel:' . str_replace(' ', '',get_field('mobiltelefon')) . '">' . get_field('mobiltelefon') . '</a></span>';
         echo '</span></li>';
     }
 
     if( get_field('telefon') ) {
-         echo '<li class="contact-telefon"><span class="contact-label">';
+         echo '<li class="k-tel-2"><span class="k-label">';
             echo svg_url(1);
-           echo '</span><span class="contact-info">';
+           echo '</span><span class="k-info">';
             echo '<span class="data"><a href="tel:' . str_replace(' ', '',get_field('telefon')) . '">' . get_field('telefon') . '</a></span>';
         echo '</span></li>';
     }
 
     if( get_field('email') ) {
         $hh = get_field('email');
-        echo '<li class="contact-email"><span class="contact-label">';
+        echo '<li class="k-mail"><span class="k-label">';
            echo svg_url(2);
-           echo '</span><span class="contact-info">';
+           echo '</span><span class="k-info">';
             if( get_field('klik_tekst_email') ) :
                 echo '<a href="mailto:' . get_field('email') . '">' . get_field('klik_tekst_email') . '</a>';
             else :
@@ -35,27 +35,12 @@ function webspeed_person_data() {
         echo '</span></li>';
     }
                 
-    if( get_field('linkedin') ) {
-        echo '<li class="contact-linkedin"><span class="contact-label">';
-           echo svg_url(6);
-           echo '</span><span class="contact-info">';
-            echo '<a href="' . get_field('linkedin') . '" target="_blank">Linkedin</a>';
-        echo '</span></li>';
-    }
-
-    if( get_field('facebook') ) {
-        echo '<li class="contact-linkedin"><span class="contact-label">';
-           echo svg_url(7);
-           echo '</span><span class="contact-info">';
-            echo '<a href="' . get_field('facebook') . '" target="_blank">facebook</a>';
-            echo '</span></li>';
-    }
                 
     if( get_field('hjemmeside') ) {
         if (get_field('klik_tekst') ) :
-             echo '<li class="contact-www"><span class="contact-label">';
+             echo '<li class="k-www"><span class="k-label">';
             echo svg_url(4);
-           echo '</span><span class="contact-info">';
+           echo '</span><span class="k-info">';
                 echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . get_field('klik_tekst') . '</a>';
             echo '</span></li>';
         else :
@@ -63,12 +48,28 @@ function webspeed_person_data() {
             $clean_url = get_field('hjemmeside');
             $clean_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $clean_url );
 
-                echo '<li class="contact-www"><span class="contact-label">';
+                echo '<li class="k-www"><span class="k-label">';
             echo svg_url(4);
-           echo '</span><span class="contact-info">';
+           echo '</span><span class="k-info">';
                 echo '<a href="' . get_field('hjemmeside') . '" target="_blank">' . $clean_url . '</a>';
             echo '</span></li>';
         endif;
+    }
+
+    if( get_field('facebook') || get_field('linkedin') || get_field('instagram') ) {
+        echo '<li class="k-some">';
+            if( get_field('facebook') ) {
+                echo '<a href="' . get_field('facebook') . '" class="fb" target="_blank">' . svg_url(7) . '</a>';
+            }
+
+            if( get_field('linkedin') ) {
+                echo '<a href="' . get_field('linkedin') . '" class="li" target="_blank">' . svg_url(6) . '</a>';
+            }
+
+            if( get_field('instagram') ) {
+                echo '<a href="' . get_field('instagram') . '" class="in" target="_blank">' . svg_url(3) . '</a>';
+            }
+        echo '</li>';
     }
 
     echo '</ul>';

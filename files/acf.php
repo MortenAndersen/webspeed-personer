@@ -131,6 +131,22 @@ acf_add_local_field_group(array(
 			'placeholder' => '',
 		),
 		array(
+			'key' => 'field_5dc2c4aaebb77',
+			'label' => 'Instagram',
+			'name' => 'instagram',
+			'type' => 'url',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+		),
+		array(
 			'key' => 'field_5dc96879fdffa',
 			'label' => 'Hjemmeside',
 			'name' => 'hjemmeside',
