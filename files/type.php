@@ -33,7 +33,8 @@
         'show_admin_column'          => true,
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
-        'show_in_rest'                          => true,
+        'show_in_rest'               => true,
+        'show_in_nav_menus'          => false
 
     );
     register_taxonomy( 'person-type', array( 'person' ), $args );
