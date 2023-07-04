@@ -109,12 +109,12 @@ function webspeed_person_img() {
 		if (!empty($content)):
 			echo '<div class="shortcode-person-img img-zoom">';
 			echo '<a href="' . get_the_permalink() . '">';
-			the_post_thumbnail('medium');
+			the_post_thumbnail('large');
 			echo '</a>';
 			echo '</div>';
 		else:
 			echo '<div class="shortcode-person-img img-zoom">';
-			the_post_thumbnail('medium');
+			the_post_thumbnail('large');
 			echo '</div>';
 		endif;
 	}
